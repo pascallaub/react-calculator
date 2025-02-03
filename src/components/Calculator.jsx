@@ -1,5 +1,6 @@
 // calculator component
 
+import { evaluate } from 'mathjs';
 import { useState } from 'react';
 
 const Calculator = () => {
@@ -17,7 +18,7 @@ const Calculator = () => {
 
     const calculateResult = () => {
         try {
-            const result = eval(display);
+            const result = evaluate(display);
             setDisplay(result.toString());
         } catch (error) {
             setDisplay('Error:', error.message);
@@ -25,7 +26,8 @@ const Calculator = () => {
     };
 
     return (
-        <div className='min-h-screen flex items-center justify-center bg-gray-100'>
+        <div className='min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-lime-400 to-green-600'>
+            <h1 className='text-5xl mb-4 font-serif bg-gradient-to-r from-blue-200 to-blue-400 bg-clip-text text-transparent'> Calculator</h1>
             <div className='bg-white shadow-md rounded-lg p-4'>
                 <input type="text" value={display} readOnly className="w-full mb-4 p-2 border rounded text-right text-xl" />
                 <div className='grid grid-cols-4 gap-2'>
