@@ -20,7 +20,7 @@ const Calculator = () => {
             const result = eval(display);
             setDisplay(result.toString());
         } catch (error) {
-            setDisplay('Error');
+            setDisplay('Error:', error.message);
         };
     };
 
